@@ -15,8 +15,6 @@ byte readRegister(int device, byte reg) {
   Wire.endTransmission();
   
   Wire.requestFrom(device, 1);
-  while(!Wire.available()) {
-  }
   byte val = Wire.read();
   return val;
 }
@@ -29,8 +27,6 @@ int readRegisterInt(int device, byte reg) {
   Wire.endTransmission();
 
   Wire.requestFrom(device, 2);
-  while(Wire.available()<2) {
-  }
   msb = Wire.read();
   lsb = Wire.read();
 

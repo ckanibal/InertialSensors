@@ -13,9 +13,6 @@ void readCompass(int device, Vector3 *data) {
   Wire.endTransmission();
   
   Wire.requestFrom(device, 6);
-  while(Wire.available() < 6) {
-    // wait
-  }
   data->x = Wire.read() << 8; //X msb
   data->x |= Wire.read(); //X lsb
   data->z = Wire.read() << 8; //Z msb
